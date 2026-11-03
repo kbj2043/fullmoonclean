@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kbj2043.github.io/fullmoonclean/sitemap.xml
