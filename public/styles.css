@@ -24,7 +24,7 @@ button{font:inherit}
 svg{display:block}
 a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #bd6900;
 outline-offset:5px}
-.wrap{width:calc(100% - clamp(48px, 8vw, 192px));
+.wrap{width:min(1200px, calc(100% - 64px));
 margin-inline:auto}
 .icon{width:22px;
 height:22px;
@@ -114,7 +114,7 @@ overflow:hidden}
 .hero-grid{display:grid;
 grid-template-columns:1fr 1fr;
 align-items:center;
-gap:40px}
+gap:48px}
 .service-tag{display:inline-flex;
 align-items:center;
 gap:8px;
@@ -181,8 +181,8 @@ color:var(--muted)}
 
     .area-section{background:#f5f8fe}
 .area-grid{display:grid;
-grid-template-columns:1fr 1fr;
-gap:90px;
+grid-template-columns:.7fr 1.3fr;
+gap:48px;
 align-items:center}
 .area-copy>p{color:var(--muted);
 font-size:15px;
@@ -236,75 +236,35 @@ color:var(--muted);
 font-size:14px;
 line-height:1.85}
 
-    .about{padding-top:15px;
-padding-bottom:75px}
-.about-inner{padding:38px 0;
-border-top:1px solid var(--line);
-border-bottom:1px solid var(--line);
-display:flex;
-gap:55px;
-align-items:center}
-.about-mark{width:85px;
-height:85px;
-display:grid;
-place-items:center;
-flex-shrink:0}
-.about-mark img{width:58px;
-height:auto;
-color:var(--blue)}
-.about h2{font-size:25px;
-letter-spacing:-1px;
-margin-bottom:10px}
-.about p{font-size:14px;
-color:var(--muted);
-line-height:1.9;
-margin:0;
-max-width:690px}
 
     .contact{background:var(--blue);
 color:white;
 position:relative;
 overflow:hidden}
-.contact-inner{position:relative;
-padding-top:62px;
-padding-bottom:62px;
-display:flex;
-justify-content:space-between;
+.contact-inner{padding-top:56px;
+padding-bottom:56px;
+display:grid;
+grid-template-columns:1fr 1fr;
 align-items:center;
-gap:30px}
+gap:48px}
 .contact h2{font-size:35px;
 letter-spacing:-1.5px}
 .contact p{font-size:14px;
 color:#dbe6ff;
 line-height:1.8;
 margin:14px 0 0}
-.contact-right{text-align:right}
+.contact-right{text-align:left}
+.contact-label{display:block;
+font-size:13px;
+color:#dbe6ff;
+margin-bottom:8px}
 .contact-number{display:block;
 font-size:39px;
 font-weight:800;
 letter-spacing:-1.5px;
 white-space:nowrap;
 margin-bottom:0}
-.footer{padding-top:29px;
-padding-bottom:29px;
-display:flex;
-justify-content:space-between;
-gap:20px;
-align-items:center}
-.footer-name{font-weight:800;
-font-size:16px;
-letter-spacing:-.5px}
-.footer p{font-size:12px;
-color:var(--muted);
-line-height:1.8;
-margin:6px 0 0}
 .mobile-contact{display:none}
-
-    @media(min-width:1500px){.hero{padding-top:75px;
-padding-bottom:55px}
-.hero-grid{gap:65px}
-h1{font-size:clamp(68px, 4.4vw, 104px)}
-}
 
     @media(max-width:1000px){.wrap{width:calc(100% - 48px)}
 .nav{gap:20px}
@@ -395,31 +355,14 @@ height:25px}
 .step h3{margin:4px 34px 10px 0;
 font-size:19px}
 .step p{font-size:14px}
-.about{padding-top:0;
-padding-bottom:48px}
-.about-inner{align-items:flex-start;
-gap:17px;
-padding-block:26px}
-.about-mark{width:56px;
-height:56px}
-.about-mark img{width:39px;
-height:auto}
-.about h2{font-size:20px;
-line-height:1.45}
-.about p{font-size:13px}
 .contact-inner{display:block;
-padding-top:42px;
-padding-bottom:43px}
+padding-top:38px;
+padding-bottom:calc(38px + 70px + env(safe-area-inset-bottom))}
 .contact h2{font-size:29px}
 .contact p{font-size:13px}
-.contact-right{text-align:left;
-margin-top:25px}
+.contact-right{margin-top:28px}
 .contact-number{font-size:35px;
 margin-bottom:0}
-.footer{padding-top:25px;
-padding-bottom:108px;
-display:block}
-.footer p{font-size:12px}
 .mobile-contact{position:fixed;
 bottom:0;
 left:0;
@@ -624,7 +567,7 @@ will-change:auto}
 .svg-sprite { position: absolute; }
 .mobile-nav { display: none; }
 .faq-section { padding-top: 10px; }
-.faq-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; }
+.faq-layout { display: grid; grid-template-columns: .7fr 1.3fr; gap: 48px; }
 .faq-list { border-top: 1px solid var(--line); }
 .faq-list details { border-bottom: 1px solid var(--line); }
 .faq-list summary { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 23px 0; font-size: 17px; font-weight: 700; cursor: pointer; list-style: none; }
@@ -649,11 +592,11 @@ will-change:auto}
 }
 @media (prefers-reduced-motion: reduce) { .faq-list summary .icon { transition: none; } }
 
-/* 넓은 화면에서는 본문을 가변 너비로 확장하고 캐릭터 높이는 읽기 좋은 범위로 유지한다. */
+/* 본문 최대 너비에 맞춰 캐릭터의 비율과 크기를 유지한다. */
 @media (min-width: 1100px) {
   .hero-art { max-width: none; width: 100%; }
-  .mascot-stage { aspect-ratio: auto; height: clamp(520px, 57vh, 780px); }
-  .mascot-image { width: auto; height: calc(100% - 43px); left: 50%; transform: translateX(-50%); }
+  .mascot-stage { aspect-ratio: 1.1 / 1; height: auto; }
+  .mascot-image { width: 100%; height: calc(100% - 54px); object-fit: contain; object-position: center bottom; bottom: 54px; left: 0; transform: none; }
 }
 
 /* 가변 너비를 유지하며 로고와 서비스 안내의 가독성을 보완한다. */
@@ -686,8 +629,6 @@ will-change:auto}
 
   .service-item h3 { font-size: 19px; margin-top: 0; margin-bottom: 7px; }
   .service-footnote { margin-top: 12px; font-size: 13px; }
-  .about-inner { gap: 15px; }
-  .about h2 { font-size: 22px; }
 }
 
 /* 연락 버튼은 PC 헤더와 모바일 하단에 모은다. */

@@ -14,7 +14,7 @@ python3 -m http.server 8765 --bind 127.0.0.1 --directory public
 
 ## 구성
 
-- `public/index.html`: 서비스·지역·상담 절차·FAQ·회사 소개·연락처
+- `public/index.html`: 서비스·지역·상담 절차·FAQ·회사 및 연락처
 - `public/styles.css`: 승인한 디자인과 반응형 화면
 - `public/app.js`: 모바일 메뉴 동작
 - `public/assets/`: 사이트에서 사용하는 이미지
@@ -32,6 +32,7 @@ python3 -m http.server 8765 --bind 127.0.0.1 --directory public
 - JavaScript를 사용할 수 없어도 서비스 안내와 전화·문자 링크는 동작한다.
 - 기기의 동작 줄이기 설정을 따르며, 이 설정에서는 비눗방울 애니메이션을 멈춘다.
 - 고객 정보를 홈페이지에서 수집하거나 저장하지 않는다.
+- PC 본문은 최대 1,200px로 가운데 정렬하고, 배경은 화면 전체를 채운다. 회사명·서비스 설명·연락처는 한 푸터에 모은다.
 
 ## GitHub Pages 배포
 
@@ -45,7 +46,7 @@ python3 -m http.server 8765 --bind 127.0.0.1 --directory public
 - canonical URL, 공유 이미지, robots.txt와 sitemap은 현재 GitHub Pages 주소를 기준으로 설정한다. 도메인을 변경할 때 함께 갱신한다.
 - 사업자 정보, 회사 소개, 실제 작업 사진과 로고 원본은 사용자에게 받은 사실만 반영한다.
 - 캐릭터는 전단지를 바탕으로 이미지 편집 도구가 만든 임시 편집본이다. 원본을 받으면 `public/assets/character.png`를 교체하고 이미지의 실제 크기도 수정한다.
-- 로고는 전단지의 집·반짝이 심벌을 바탕으로 재구성한 투명 SVG다. 헤더·회사 소개·탭 아이콘에서 같은 파일을 사용한다. 정식 로고 원본을 받으면 교체한다.
+- 로고는 전단지의 집·반짝이 심벌을 바탕으로 재구성한 투명 SVG다. 헤더·탭 아이콘에서 같은 파일을 사용한다. 정식 로고 원본을 받으면 교체한다.
 - 주요 서비스 6종은 전단지 사진을 이미지 생성 도구로 보정한 1774×887px 이미지와 작업 설명으로 안내한다. 웹용 JPEG는 `public/assets/services/`에 저장한다. 보정 프롬프트는 `docs/service-image-upscale.md`에 기록한다. 난간·유리문·주차장·승강기는 정기 청소 포함 여부와 작업 가능 범위를 현장 상담에서 확인하도록 명시한다.
 
 ## 확인
